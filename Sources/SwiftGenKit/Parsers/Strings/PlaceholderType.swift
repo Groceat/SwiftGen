@@ -46,7 +46,7 @@ extension Strings.PlaceholderType {
   private static let formatTypesRegEx: NSRegularExpression = {
     // %d/%i/%o/%u/%x with their optional length modifiers like in "%lld"
     let patternInt = "(?:h|hh|l|ll|q|z|t|j)?([diox])"
-    // valid flags for Unsigned int
+    // valid flag for Unsigned int
     let patternUnsignedInt = "(?:h|hh|l|ll|q|z|t|j)?([u])"
     // valid flags for float
     let patternFloat = "[aefg]"
