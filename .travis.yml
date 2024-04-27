@@ -1,0 +1,24 @@
+language: swift
+os: osx
+osx_image: xcode12.2
+cache:
+  directories:
+    - $HOME/.cocoapods 
+
+before_install:
+  - gem install cocoapods  
+  - pod repo update
+
+install:
+  - pod install  
+
+script:
+  - set -o pipefail
+  - xcodebuild -workspace SwiftGen.xcworkspace -scheme SwiftGenKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.2' clean build test | xcpretty
+
+notifications:
+  email:
+    recipients:
+      - bhyfch1@gmail.com
+    on_success: change  
+    on_failure: always  
